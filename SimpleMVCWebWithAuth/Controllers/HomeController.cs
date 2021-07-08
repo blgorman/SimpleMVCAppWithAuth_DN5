@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SimpleMVCWebWithAuth.Models;
 using System;
@@ -12,10 +13,12 @@ namespace SimpleMVCWebWithAuth.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly TelemetryClient _telemetryClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, TelemetryClient telemetryClient)
         {
             _logger = logger;
+            _telemetryClient = telemetryClient;
         }
 
         public IActionResult Index()
@@ -25,6 +28,9 @@ namespace SimpleMVCWebWithAuth.Controllers
 
         public IActionResult Privacy()
         {
+            var data = new Dictionary<string, string>();
+            data.Add("eventKey", "Some Event Data or Message");
+            _telemetryClient.TrackEvent("Privacy Page View", data);
             return View();
         }
 
