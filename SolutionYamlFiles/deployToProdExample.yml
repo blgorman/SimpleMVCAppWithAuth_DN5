@@ -6,7 +6,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - SimpleAuthWebGHA
 on:
   push:
     branches:
-      - main
+      - neverunthis
   workflow_dispatch:
 
 jobs:
@@ -51,7 +51,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'SimpleAuthWebGHA'
+        app-name: 'YOUR-APP-NAME-HERE'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5291ecda1022434daad5d142bbf7bd7b }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_[generatedByAzure] }}
         package: .
