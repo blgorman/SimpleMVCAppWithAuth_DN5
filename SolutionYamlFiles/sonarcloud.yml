@@ -2,9 +2,6 @@
 # then you  must add secrets for GITHUB_TOKEN and SONAR_TOKEN to the secrets
 name: Scan with SonarCloud
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
