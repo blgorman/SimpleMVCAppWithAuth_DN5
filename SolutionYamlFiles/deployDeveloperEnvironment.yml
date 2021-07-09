@@ -1,0 +1,43 @@
+name: Deploy Developer Environment Infrastructure
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches: [ main ]
+  
+env: 
+  BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checkout code
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ env.BRANCH_NAME }}
+
+    # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    # Deploy ARM template
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: ./azuredeploy.json
+        parameters: 
+          webAppName=simpleweb-${{ env.BRANCH_NAME }}-dev
+          
+    - name: Trigger Deploy Developer Environment Application
+      if: success()
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_GHA_PAT }}
+        repository: ${{ github.repository }}
+        event-type: deploy-developer-application
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "branch": "${{ env.BRANCH_NAME }}"}'
