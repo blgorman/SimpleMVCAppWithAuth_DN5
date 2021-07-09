@@ -3,7 +3,7 @@ name: Deploy Developer Environment Infrastructure
 # Controls when the workflow will run
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
   
 env: 
   BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
