@@ -30,8 +30,8 @@ Additional Resources:
 
 ## Azure DevopsLabs and Azure Devops Generator
 
-[Azure Devops Labs](https://azuredevopslabs.com/)
-[Azure Devops Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/)
+[Azure Devops Labs](https://azuredevopslabs.com/)  
+[Azure Devops Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/)  
 
 ## Implementation
 
