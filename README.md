@@ -16,3 +16,25 @@ If you have any questions about this Disclaimer, You can contact Us:
 ## Fork ##
 
 Feel free to fork this repository for your own personal use.
+
+# Resources  
+
+Additional Resources:  
+
+* [Deploy GitHub Actions](https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel)  
+* [Deploy ARM templates GitHub Actions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-github-actions#generate-deployment-credentials)
+* [Deploy Databases from GitHub to Azure](https://docs.microsoft.com/en-us/azure/developer/github/database-actions-deploy)
+* [Deploying a WebApp with Application Insights](https://winterdom.com/2017/08/01/aiarm)
+* [GitHub Marketplace](https://github.com/marketplace?type=)
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/)
+
+## Azure DevopsLabs and Azure Devops Generator
+
+[Azure Devops Labs](https://azuredevopslabs.com/)
+[Azure Devops Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/)
+
+## Implementation
+
+[Solution implemented](https://github.com/boba-fet/DevOpsForWebApps)
+
+
